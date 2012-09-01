@@ -5,8 +5,6 @@
 
 package edu.drexel.cs451.hangman;
 
-import java.awt.Container;
-
 import javax.swing.JFrame;
 
 public class HangmanGame {
@@ -29,7 +27,20 @@ public class HangmanGame {
     }
     
     public static void main(String[] args) {
-        HangmanGame game = new HangmanGame();
+        final HangmanGame game = new HangmanGame();
+        
+        //TODO:This section is for testing purposes. Remove when GUIs are implemented
+        WordAccessor wordAccessor = new WordAccessor("HangmanWords.txt");
+        wordAccessor.loadDictionary();
+        String ramdomWord = wordAccessor.getRandomWord();
+        System.out.println("Random word provided was " + ramdomWord);
+        
+        javax.swing.SwingUtilities.invokeLater(new Runnable(){
+        	public void run(){
+        		game.start();
+        	}
+        });
+        
         
         
     }

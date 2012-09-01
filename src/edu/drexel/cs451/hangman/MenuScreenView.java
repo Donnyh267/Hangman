@@ -8,8 +8,17 @@ import javax.swing.JPanel;
 
 public class MenuScreenView extends JPanel {
 
-    public MenuScreenView(HangmanGame hangmanGame) {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MenuScreenView(HangmanGame hangmanGame) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 
 }
