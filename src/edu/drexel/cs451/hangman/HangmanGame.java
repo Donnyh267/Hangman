@@ -12,6 +12,7 @@ public class HangmanGame {
     public static String title = "A New Hangman Game";
     
     private JFrame frame;
+    public MenuScreenView menuScreenView = new MenuScreenView(this);
     
     //create a new game instance
     public HangmanGame() {
@@ -20,7 +21,6 @@ public class HangmanGame {
     
     public void start() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        MenuScreenView menuScreenView = new MenuScreenView(this);
         this.changePanel(menuScreenView);
         
         frame.pack();
@@ -29,6 +29,8 @@ public class HangmanGame {
     
     public void changePanel(GamePanel p) {
         frame.setContentPane(p);
+        frame.pack();
+        frame.repaint();
     }
     
     public static void main(String[] args) {
