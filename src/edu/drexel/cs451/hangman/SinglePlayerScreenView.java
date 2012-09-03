@@ -13,5 +13,25 @@ public class SinglePlayerScreenView extends JPanel {
         // TODO Auto-generated constructor stub
 
     }
+    
+    public void drawPrompt(String pickedWord){
+    	//TODO Draws the prompt for the word to be guessed on the GUI screen
+    	// dashes (_) should be OK.
+    }
+
+	public void drawLoseScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void drawWinScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getGuessedLetter() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
