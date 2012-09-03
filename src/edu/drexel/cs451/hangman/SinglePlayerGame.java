@@ -1,5 +1,6 @@
 package edu.drexel.cs451.hangman;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -35,6 +36,7 @@ public class SinglePlayerGame {
         status = GameStatus.CONTINUE;
         view.requestFocus();
         view.requestFocusInWindow();
+        view.setPreferredSize(new Dimension(600, 500));
 
         char[] chars = pickedWord.toCharArray();
         Set<Character> charSet = new LinkedHashSet<Character>();
