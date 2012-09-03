@@ -11,37 +11,37 @@ public class HangmanGame {
     
     public static String title = "A New Hangman Game";
     
+    private JFrame frame;
+    
     //create a new game instance
     public HangmanGame() {
-        
+        frame = new JFrame(title);
     }
     
     public void start() {
-        JFrame frame = new JFrame(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MenuScreenView menuScreenView = new MenuScreenView(this);
-        frame.setContentPane(menuScreenView);
+        this.changePanel(menuScreenView);
         
         frame.pack();
         frame.setVisible(true);
     }
     
+    public void changePanel(GamePanel p) {
+        frame.setContentPane(p);
+    }
+    
     public static void main(String[] args) {
         final HangmanGame game = new HangmanGame();
-        
-        //TODO:This section is for testing purposes. Remove when GUIs are implemented
-        WordAccessor wordAccessor = new WordAccessor("HangmanWords.txt");
-        wordAccessor.loadDictionary();
-        String ramdomWord = wordAccessor.getRandomWord();
-        System.out.println("Random word provided was " + ramdomWord);
-        
         javax.swing.SwingUtilities.invokeLater(new Runnable(){
         	public void run(){
         		game.start();
         	}
         });
-        
-        
-        
+    }
+
+    //End the program
+    public void end() {
+        System.exit(0);
     }
 }
