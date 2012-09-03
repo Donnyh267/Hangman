@@ -6,5 +6,5 @@
 package edu.drexel.cs451.hangman;
 
 public class ResourceManager implements ProvidingResource {
-    
+
 }

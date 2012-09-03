@@ -32,14 +32,23 @@ public class MenuScreenView extends GamePanel implements ActionListener {
         exitB = new JButton("Exit");
         exitB.addActionListener(this);
 
-        this.setPreferredSize(new Dimension(600,400));
+        this.setPreferredSize(new Dimension(600, 400));
         GridBagConstraints cs = new GridBagConstraints();
-        cs.insets.set(5,5,5,5); cs.fill = GridBagConstraints.BOTH;
-        
-        cs.gridx = 0; cs.gridy = 0; this.add(singleB,cs);
-        cs.gridx = 1; cs.gridy = 0; this.add(multiB,cs);
-        cs.gridx = 0; cs.gridy = 1; this.add(timeB,cs);
-        cs.gridx = 1; cs.gridy = 1; this.add(exitB,cs);
+        cs.insets.set(5, 5, 5, 5);
+        cs.fill = GridBagConstraints.BOTH;
+
+        cs.gridx = 0;
+        cs.gridy = 0;
+        this.add(singleB, cs);
+        cs.gridx = 1;
+        cs.gridy = 0;
+        this.add(multiB, cs);
+        cs.gridx = 0;
+        cs.gridy = 1;
+        this.add(timeB, cs);
+        cs.gridx = 1;
+        cs.gridy = 1;
+        this.add(exitB, cs);
     }
 
     public void actionPerformed(ActionEvent ae) {

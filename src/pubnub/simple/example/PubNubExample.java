@@ -9,101 +9,96 @@ import org.json.JSONObject;
 import pubnub.Callback;
 import pubnub.Pubnub;
 
+public class PubNubExample {
+    private final static String PUBLISHER_KEY = "pub-654dd108-e91b-4dd7-b730-547b8e108e7e";
+    private final static String SUBSCRIBE_KEY = "sub-2d525f38-ec96-11e1-b035-4b53f42f5189";
+    private final static String SECRET_KEY = "sec-ZGM3MTQyYjUtMjg2OC00ZGIwLThlMjctNWM1MGVlZThjNzI2";
+    private final static String CIPHER_KEY = "";
 
+    public static void main(String[] args) {
+        /*
+         * What we can do is ask for the user for the name of a room. We create
+         * a channel using that string have both players subscribe to this
+         * channel and send their letter choice as messages through the channel.
+         * We can also use these messages to indicate whether if the other
+         * person has won or lost I've also noticed, since pubnub uses a channel
+         * system, we could actually do more than 2 players
+         */
+        Scanner scan = new Scanner(System.in);
 
-public class PubNubExample
-{
-	private final static String PUBLISHER_KEY = "pub-654dd108-e91b-4dd7-b730-547b8e108e7e";
-	private final static String SUBSCRIBE_KEY = "sub-2d525f38-ec96-11e1-b035-4b53f42f5189";
-	private final static String SECRET_KEY = "sec-ZGM3MTQyYjUtMjg2OC00ZGIwLThlMjctNWM1MGVlZThjNzI2";
-	private final static String CIPHER_KEY = "";
-	
-	
-	public static void main(String[] args)
-	{
-		/*
-		 * What we can do is ask for the user for the name of a room.
-		 * We create a channel using that string
-		 * have both players subscribe to this channel and send their letter choice as messages through the channel.
-		 * We can also use these messages to indicate whether if the other person has won or lost
-		 * I've also noticed, since pubnub uses a channel system, we could actually do more than 2 players
-		 */
-		Scanner scan = new Scanner(System.in);
-		
-		System.out.print("Enter the name of a channel to connect to: ");
-		String channel = "CS451_Hangman_"+scan.nextLine();
-		Pubnub pubnub = new Pubnub(PUBLISHER_KEY, SUBSCRIBE_KEY, SECRET_KEY, CIPHER_KEY, true);
-		
-		//How to Send a Message
-		//*****************************************************
-		//Construct Message
-		JSONObject message = new JSONObject();
-		try 
-		{
-			message.put("Player1", "Hello World!");
-		} catch (org.json.JSONException jsonError)
-		{}
-		
-		//Send Message
-		JSONArray response = pubnub.publish( channel, message);
-		//******************************************************
-		
-		//How to listen
-		//Implement the listener
-		class Receiver implements Callback 
-		{
+        System.out.print("Enter the name of a channel to connect to: ");
+        String channel = "CS451_Hangman_" + scan.nextLine();
+        Pubnub pubnub = new Pubnub(PUBLISHER_KEY, SUBSCRIBE_KEY, SECRET_KEY,
+                CIPHER_KEY, true);
 
-			@Override
-			public void connectCallback(String arg0) {}
+        // How to Send a Message
+        // *****************************************************
+        // Construct Message
+        JSONObject message = new JSONObject();
+        try {
+            message.put("Player1", "Hello World!");
+        } catch (org.json.JSONException jsonError) {
+        }
 
-			@Override
-			public void disconnectCallback(String arg0) {}
+        // Send Message
+        JSONArray response = pubnub.publish(channel, message);
+        // ******************************************************
 
-			@Override
-			public void errorCallback(String arg0, Object arg1) {}
+        // How to listen
+        // Implement the listener
+        class Receiver implements Callback {
 
-			@Override
-			public void reconnectCallback(String arg0) {}
+            @Override
+            public void connectCallback(String arg0) {
+            }
 
-			@Override
-			public boolean subscribeCallback(String channel, Object message) {
-				try 
-				{
-					//If we got JSON step through all the entries and print the message
-					if (message instanceof JSONObject)
-					{
-						JSONObject inMessage = (JSONObject)message;
-						Iterator keys = inMessage.keys();
+            @Override
+            public void disconnectCallback(String arg0) {
+            }
+
+            @Override
+            public void errorCallback(String arg0, Object arg1) {
+            }
+
+            @Override
+            public void reconnectCallback(String arg0) {
+            }
+
+            @Override
+            public boolean subscribeCallback(String channel, Object message) {
+                try {
+                    // If we got JSON step through all the entries and print the
+                    // message
+                    if (message instanceof JSONObject) {
+                        JSONObject inMessage = (JSONObject) message;
+                        Iterator keys = inMessage.keys();
                         while (keys.hasNext()) {
-                            System.out.print(inMessage.get(keys.next().toString()) + " ");
+                            System.out.print(inMessage.get(keys.next()
+                                    .toString()) + " ");
                         }
                         System.out.println();
-					}
-					else if (message instanceof String)
-					{
-						//Else if the message we got was a String
-						String inMessage = (String) message;
+                    } else if (message instanceof String) {
+                        // Else if the message we got was a String
+                        String inMessage = (String) message;
                         System.out.print(inMessage + " ");
                         System.out.println();
-					}
-					else if (message instanceof JSONArray) {
-						//Else if the message was a JSON array
+                    } else if (message instanceof JSONArray) {
+                        // Else if the message was a JSON array
                         JSONArray inMessage = (JSONArray) message;
                         System.out.print(inMessage.toString() + " ");
                         System.out.println();
                     }
-					
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-				return false;
-			}	
-		}
-		
-		//Create a Receiver
-		Receiver messageReceiver = new Receiver();
-		//Listen
-		pubnub.subscribe(channel, messageReceiver);
-	}
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+
+        // Create a Receiver
+        Receiver messageReceiver = new Receiver();
+        // Listen
+        pubnub.subscribe(channel, messageReceiver);
+    }
 }

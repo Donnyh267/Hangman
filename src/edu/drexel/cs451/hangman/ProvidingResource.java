@@ -8,6 +8,5 @@
 package edu.drexel.cs451.hangman;
 
 public interface ProvidingResource {
-	
-    
+
 }

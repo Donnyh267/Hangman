@@ -9,20 +9,17 @@ import org.junit.Test;
 
 import edu.drexel.cs451.hangman.SinglePlayerGame;
 
-
 public class SinglePlayerGameTest {
 
-	@Test
-	public void checkLetter() {
-		final String letter = "l";
-		final String pickedWord = "yellow";
-		
-		final SinglePlayerGame game = mock(SinglePlayerGame.class);
-		game.setPickedWord(pickedWord);
-		//assertTrue(game.checkLetter(letter));
-		
-		
-		
-	}
+    @Test
+    public void checkLetter() {
+        final String letter = "l";
+        final String pickedWord = "yellow";
+
+        final SinglePlayerGame game = mock(SinglePlayerGame.class);
+        game.setPickedWord(pickedWord);
+        // assertTrue(game.checkLetter(letter));
+
+    }
 
 }

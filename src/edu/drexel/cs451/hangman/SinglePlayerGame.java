@@ -29,7 +29,6 @@ public class SinglePlayerGame {
     }
 
     public void start() {
-        wordAccessor.loadDictionary();
         setPickedWord(wordAccessor.getRandomWord());
         view = new SinglePlayerScreenView(this);
         game.changePanel(view);

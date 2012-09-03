@@ -36,17 +36,18 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         this.setLayout(new GridBagLayout());
         this.pickedWord = singleGame.getPickedWord();
         GridBagConstraints cs = new GridBagConstraints();
-        this.setPreferredSize(new Dimension(600,400));
+        this.setPreferredSize(new Dimension(600, 400));
         cs.gridx = 0;
         cs.gridy = 0;
         cs.anchor = GridBagConstraints.EAST;
         backButton = new JButton("Back");
         this.add(backButton, cs);
-        backButton.addActionListener(new ActionListener(){
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 singleGame.end();
-            }});
+            }
+        });
 
         hangingManPanel = new BasicHangingPanel();
         cs.gridx = 0;
