@@ -22,6 +22,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         KeyListener {
 
     private static final long serialVersionUID = 1L;
+	private static final String NAME = "Hangman - Single Player";
     private HangmanGame game;
     private SinglePlayerGame singleGame;
 
@@ -33,10 +34,10 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
 
     public SinglePlayerScreenView(final SinglePlayerGame singleGame) {
         this.singleGame = singleGame;
+        this.setName(NAME);
         this.setLayout(new GridBagLayout());
         this.pickedWord = singleGame.getPickedWord();
         GridBagConstraints cs = new GridBagConstraints();
-        this.setPreferredSize(new Dimension(600, 400));
         cs.gridx = 0;
         cs.gridy = 0;
         cs.anchor = GridBagConstraints.EAST;

@@ -5,32 +5,42 @@
 
 package edu.drexel.cs451.hangman;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class HangmanGame {
 
     public static String title = "A New Hangman Game";
 
     private JFrame frame;
-    public MenuScreenView menuScreenView = new MenuScreenView(this);
+    private JPanel currentPanel;
+    public MenuScreenView menuScreenView;
 
     // create a new game instance
     public HangmanGame() {
         frame = new JFrame(title);
+        frame.setContentPane(new JPanel(new BorderLayout()));
     }
 
     public void start() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.changePanel(menuScreenView);
+        menuScreenView = new MenuScreenView(this);
+        frame.getContentPane().add(menuScreenView, BorderLayout.CENTER);
+        currentPanel = menuScreenView;
 
         frame.pack();
         frame.setVisible(true);
     }
 
     public void changePanel(GamePanel p) {
-        frame.setContentPane(p);
-        frame.pack();
-        frame.repaint();
+    	frame.getContentPane().remove(currentPanel);
+    	frame.getContentPane().add(p, BorderLayout.CENTER);
+    	frame.getContentPane().repaint();
+    	frame.setTitle(p.getName());
+        frame.setVisible(true);
+    	currentPanel = p;
     }
 
     public static void main(String[] args) {

@@ -26,7 +26,7 @@ public class GamePanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponents(g);
+        super.paintComponent(g);
         if (backgroundFilename != null) {
             try {
                 // TODO Replace this with ResourceManager

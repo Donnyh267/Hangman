@@ -14,7 +14,7 @@ public class BasicHangingPanel extends HangingPanel {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponents(g);
+        super.paintComponent(g);
         // draw base
         g.drawLine(0, 280, 280, 280);
         // pole
