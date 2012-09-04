@@ -37,7 +37,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         this.setLayout(new GridBagLayout());
         this.pickedWord = singleGame.getPickedWord();
         GridBagConstraints cs = new GridBagConstraints();
-        cs.gridx = 0; cs.gridy = 0;
+        cs.gridx = 0; cs.gridy = 0; cs.weightx = 1.0; cs.weighty = 1.0;
         cs.anchor = GridBagConstraints.EAST;
         backButton = new JButton("Back");
         this.add(backButton, cs);
@@ -48,7 +48,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
             }
         });
         
-        cs.gridx = 1; cs.gridy = 0;
+        cs.gridx = 1; cs.gridy = 0; cs.weightx = 1.0; cs.weighty = 1.0;
         cs.anchor = GridBagConstraints.WEST;
         restartButton = new JButton("Restart");
         this.add(restartButton, cs);
@@ -60,13 +60,13 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         });
 
         hangingManPanel = new BasicHangingPanel();
-        cs.gridx = 0; cs.gridy = 1;
+        cs.gridx = 0; cs.gridy = 1; cs.weightx = 1.0; cs.weighty = 1.0;
         cs.anchor = GridBagConstraints.CENTER;
         cs.fill = GridBagConstraints.HORIZONTAL;
         this.add(hangingManPanel, cs);
 
         mainLetters = new GuessedLettersPanel(pickedWord);
-        cs.gridx = 0; cs.gridy = 2;
+        cs.gridx = 0; cs.gridy = 2; cs.weightx = 1.0; cs.weighty = 1.0;
         this.add(mainLetters, cs);
 
         allLetters = new AllLettersPanel(this);

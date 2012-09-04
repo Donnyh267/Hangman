@@ -1,5 +1,6 @@
 package edu.drexel.cs451.hangman.view;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JScrollPane;
@@ -20,9 +21,12 @@ public class MultiplayerScreenView extends SinglePlayerScreenView {
         this.multiGame = game;
         GridBagConstraints cs = new GridBagConstraints();
         cs.gridx = 1; cs.gridy = 1; cs.gridheight = 3;
+        cs.weightx = 1.0; cs.weighty= 1.0;
         cs.fill = GridBagConstraints.BOTH;
         JScrollPane boardScrl = new JScrollPane(board);
         boardScrl.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        boardScrl.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        boardScrl.setPreferredSize(new Dimension(200,400));
         this.add(boardScrl, cs);
         this.setName(NAME);
     }

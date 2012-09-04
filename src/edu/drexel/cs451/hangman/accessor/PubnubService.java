@@ -64,6 +64,7 @@ public class PubnubService {
         public boolean subscribeCallback(String channel, Object message) {
             if (message instanceof JSONObject) {
                 JSONObject msg = (JSONObject) message;
+                System.out.println(message);
                 try {
                     String type = msg.getString("type");
                     if (type.equalsIgnoreCase(MSGTYPE.HI)) {
@@ -78,7 +79,7 @@ public class PubnubService {
                 } catch (JSONException e) {
                 }
             }
-            return false;
+            return true;
         }
 
 		@Override

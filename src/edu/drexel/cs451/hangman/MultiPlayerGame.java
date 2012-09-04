@@ -61,11 +61,14 @@ public class MultiPlayerGame extends SinglePlayerGame {
     }
     
     public void someoneWon(String winner) {
-        view.addMsg(winner + " won the game.. Try again next time.");
-        view.drawLoseScreen();
+        if (status != GameStatus.WIN) {
+            view.addMsg(winner + " won the game.. Try again next time.");
+            view.drawLoseScreen();
+        }
     }
     
     public void quit() {
+        pubnub.bye();
         game.changePanel(game.menuScreenView);
     }
 
