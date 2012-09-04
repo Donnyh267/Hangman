@@ -79,7 +79,11 @@ public class SinglePlayerGame {
 		else if (status == GameStatus.WIN)
 			view.drawWinScreen();
 	}
-
+	
+	public GameStatus getGameStatus()
+	{
+		return status;
+	}
 	public String getPickedWord() {
 		return pickedWord;
 	}
