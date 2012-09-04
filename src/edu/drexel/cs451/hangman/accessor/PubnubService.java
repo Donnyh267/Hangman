@@ -6,8 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import pubnub.Callback;
-import pubnub.Pubnub;
+import pubnub.api.Callback;
+import pubnub.api.Pubnub;
 import edu.drexel.cs451.hangman.MultiPlayerGame;
 
 public class PubnubService {
@@ -80,6 +80,11 @@ public class PubnubService {
             }
             return false;
         }
+
+		@Override
+		public boolean presenceCallback(String arg0, Object arg1) {
+			return false;
+		}
     }
 
     private static class Holder {

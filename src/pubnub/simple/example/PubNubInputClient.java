@@ -5,8 +5,8 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import pubnub.Callback;
-import pubnub.Pubnub;
+import pubnub.api.Callback;
+import pubnub.api.Pubnub;
 
 public class PubNubInputClient {
     private final static String PUBLISHER_KEY = "pub-654dd108-e91b-4dd7-b730-547b8e108e7e";

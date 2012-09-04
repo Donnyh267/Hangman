@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.drexel.cs451.hangman.GamePanel;
+import edu.drexel.cs451.hangman.view.GamePanel;
 import edu.drexel.cs451.hangman.HangmanGame;
 
 public class HangmanGameTest {

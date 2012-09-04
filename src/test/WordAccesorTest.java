@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import edu.drexel.cs451.hangman.WordAccessor;
+import edu.drexel.cs451.hangman.accessor.WordAccessor;
 
 public class WordAccesorTest {
 

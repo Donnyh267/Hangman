@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 
 import org.junit.Test;
 
-import edu.drexel.cs451.hangman.GameStatus;
+import edu.drexel.cs451.hangman.accessor.GameStatus;
 import edu.drexel.cs451.hangman.HangmanGame;
 import edu.drexel.cs451.hangman.SinglePlayerGame;
 

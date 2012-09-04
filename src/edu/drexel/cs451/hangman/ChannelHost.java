@@ -3,9 +3,10 @@ package edu.drexel.cs451.hangman;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import edu.drexel.cs451.hangman.accessor.WordAccessor;
 
 import pubnub.api.*;
 

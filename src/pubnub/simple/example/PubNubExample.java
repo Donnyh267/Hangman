@@ -6,8 +6,8 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import pubnub.Callback;
-import pubnub.Pubnub;
+import pubnub.api.Callback;
+import pubnub.api.Pubnub;
 
 public class PubNubExample {
     private final static String PUBLISHER_KEY = "pub-654dd108-e91b-4dd7-b730-547b8e108e7e";
@@ -84,6 +84,12 @@ public class PubNubExample {
                 }
                 return false;
             }
+
+			@Override
+			public boolean presenceCallback(String arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				return false;
+			}
         }
 
         // Create a Receiver
