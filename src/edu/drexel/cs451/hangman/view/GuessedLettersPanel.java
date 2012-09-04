@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.sun.xml.internal.ws.util.StringUtils;
+//port com.sun.xml.internal.ws.util.StringUtils;
 
 public class GuessedLettersPanel extends JPanel {
 
@@ -35,8 +35,8 @@ public class GuessedLettersPanel extends JPanel {
     // display the character at position X
     public void show(int position) {
         letters.get(position).setText(
-                StringUtils.capitalize(pickedWord.substring(position,
-                        position + 1)));
+               pickedWord.substring(position,
+                        position + 1).toUpperCase());
     }
 
     public void lose() {

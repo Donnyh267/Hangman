@@ -8,6 +8,7 @@
 package edu.drexel.cs451.hangman.accessor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -43,6 +44,11 @@ public class WordAccessor implements ProvidingWord {
             dictionary.add(input.next().toLowerCase());
         input.close();
 
+    }
+    
+    public List<String> getDictionary()
+    {
+    	return Collections.unmodifiableList(dictionary);
     }
 
     public String getRandomWord() {

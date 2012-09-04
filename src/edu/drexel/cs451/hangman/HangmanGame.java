@@ -45,6 +45,11 @@ public class HangmanGame {
         frame.setVisible(true);
     	currentPanel = p;
     }
+    
+    public GamePanel getCurrentPanel()
+    {
+    	return (GamePanel) this.currentPanel;
+    }
 
     public static void main(String[] args) {
         final HangmanGame game = new HangmanGame();
