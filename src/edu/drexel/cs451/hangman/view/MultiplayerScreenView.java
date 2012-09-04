@@ -29,6 +29,7 @@ public class MultiplayerScreenView extends SinglePlayerScreenView {
         boardScrl.setPreferredSize(new Dimension(200,400));
         this.add(boardScrl, cs);
         this.setName(NAME);
+        this.remove(restartButton);
     }
 
     private static final long serialVersionUID = -8028389762745074244L;
