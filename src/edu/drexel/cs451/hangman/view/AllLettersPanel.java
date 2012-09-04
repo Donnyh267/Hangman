@@ -44,6 +44,7 @@ public class AllLettersPanel extends JPanel {
     public void disableAll() {
         for (JLabel l : letters) {
             l.setForeground(BLURRED);
+            l.removeMouseListener(this.listener);
         }
     }
 }

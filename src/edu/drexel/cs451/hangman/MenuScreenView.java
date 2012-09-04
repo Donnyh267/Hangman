@@ -59,7 +59,8 @@ public class MenuScreenView extends GamePanel implements ActionListener {
         } else if (ae.getSource() == multiB) {
             // TODO: play multi player
         } else if (ae.getSource() == timeB) {
-            // TODO: play time attack
+        	TimeAttackSinglePlayerGame singleGame = new TimeAttackSinglePlayerGame(game);
+        	singleGame.start();
         } else if (ae.getSource() == exitB) {
             game.end();
         }

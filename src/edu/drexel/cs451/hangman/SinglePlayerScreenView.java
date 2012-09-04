@@ -22,16 +22,16 @@ import edu.drexel.cs451.hangman.view.HangingPanel;
 public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         KeyListener {
 
-    private static final long serialVersionUID = 1L;
-	private static final String NAME = "Hangman - Single Player";
-    private HangmanGame game;
-    private SinglePlayerGame singleGame;
+    protected static final long serialVersionUID = 1L;
+	protected static final String NAME = "Hangman - Single Player";
+    protected HangmanGame game;
+    protected SinglePlayerGame singleGame;
 
-    private JButton backButton, restartButton;
-    private HangingPanel hangingManPanel;
-    private GuessedLettersPanel mainLetters;
-    private AllLettersPanel allLetters;
-    private String pickedWord;
+    protected JButton backButton, restartButton;
+    protected HangingPanel hangingManPanel;
+    protected GuessedLettersPanel mainLetters;
+    protected AllLettersPanel allLetters;
+    protected String pickedWord;
 
     public SinglePlayerScreenView(final SinglePlayerGame singleGame) {
         this.singleGame = singleGame;
@@ -46,7 +46,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                singleGame.end();
+                singleGame.exit();
             }
         });
         
@@ -83,12 +83,14 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
     public void drawLoseScreen() {
         // TODO Change this
         mainLetters.lose();
+        this.removeKeyListener(this);
         allLetters.disableAll();
     }
 
     public void drawWinScreen() {
         // TODO Change this
         mainLetters.win();
+        this.removeKeyListener(this);
         allLetters.disableAll();
     }
 
