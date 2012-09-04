@@ -26,7 +26,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
     private HangmanGame game;
     private SinglePlayerGame singleGame;
 
-    private JButton backButton;
+    private JButton backButton, restartButton;
     private HangingPanel hangingManPanel;
     private GuessedLettersPanel mainLetters;
     private AllLettersPanel allLetters;
@@ -38,8 +38,7 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         this.setLayout(new GridBagLayout());
         this.pickedWord = singleGame.getPickedWord();
         GridBagConstraints cs = new GridBagConstraints();
-        cs.gridx = 0;
-        cs.gridy = 0;
+        cs.gridx = 0; cs.gridy = 0;
         cs.anchor = GridBagConstraints.EAST;
         backButton = new JButton("Back");
         this.add(backButton, cs);
@@ -49,22 +48,30 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
                 singleGame.end();
             }
         });
+        
+        cs.gridx = 1; cs.gridy = 0;
+        cs.anchor = GridBagConstraints.WEST;
+        restartButton = new JButton("Restart");
+        this.add(restartButton, cs);
+        restartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                singleGame.start();
+            }
+        });
 
         hangingManPanel = new BasicHangingPanel();
-        cs.gridx = 0;
-        cs.gridy = 1;
+        cs.gridx = 0; cs.gridy = 1;
         cs.anchor = GridBagConstraints.CENTER;
         cs.fill = GridBagConstraints.HORIZONTAL;
         this.add(hangingManPanel, cs);
 
         mainLetters = new GuessedLettersPanel(pickedWord);
-        cs.gridx = 0;
-        cs.gridy = 2;
+        cs.gridx = 0; cs.gridy = 2;
         this.add(mainLetters, cs);
 
         allLetters = new AllLettersPanel(this);
-        cs.gridx = 0;
-        cs.gridy = 3;
+        cs.gridx = 0; cs.gridy = 3;
         this.add(allLetters, cs);
 
         this.setFocusable(true);
