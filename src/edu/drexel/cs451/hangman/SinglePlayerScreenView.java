@@ -1,5 +1,6 @@
 package edu.drexel.cs451.hangman;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -112,10 +113,20 @@ public class SinglePlayerScreenView extends GamePanel implements MouseListener,
 
     @Override
     public void mouseEntered(MouseEvent arg0) {
+        if (arg0.getComponent().getName() == AllLettersPanel.NAME) {
+            if (((JLabel) arg0.getComponent()).getForeground() != AllLettersPanel.BLURRED) {
+            	this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            }
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent arg0) {
+        if (arg0.getComponent().getName() == AllLettersPanel.NAME) {
+            if (((JLabel) arg0.getComponent()).getForeground() != AllLettersPanel.BLURRED) {
+            	this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+            }
+        }
     }
 
     @Override

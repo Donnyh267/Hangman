@@ -8,16 +8,16 @@ import java.util.Set;
 
 public class SinglePlayerGame {
 
-    private WordAccessor wordAccessor;
-    private SinglePlayerScreenView view;
+    protected WordAccessor wordAccessor;
+    protected SinglePlayerScreenView view;
     public static int MaxGuesses = 6;
-    private List<String> foundLetters;
-    private List<String> missedLetters;
-    private String pickedWord;
-    private String neededLetters;
-    private GameStatus status;
-    private int numRemainingLetters;
-    private HangmanGame game;
+    protected List<String> foundLetters;
+    protected List<String> missedLetters;
+    protected String pickedWord;
+    protected String neededLetters;
+    protected GameStatus status;
+    protected int numRemainingLetters;
+    protected HangmanGame game;
 
     public SinglePlayerGame(HangmanGame game) {
         wordAccessor = WordAccessor.getInstance();
@@ -36,7 +36,6 @@ public class SinglePlayerGame {
         status = GameStatus.CONTINUE;
         view.requestFocus();
         view.requestFocusInWindow();
-        view.setPreferredSize(new Dimension(600, 500));
 
         char[] chars = pickedWord.toCharArray();
         Set<Character> charSet = new LinkedHashSet<Character>();
