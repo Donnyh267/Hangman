@@ -1,4 +1,4 @@
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.view;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -14,10 +14,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import edu.drexel.cs451.hangman.view.AllLettersPanel;
-import edu.drexel.cs451.hangman.view.BasicHangingPanel;
-import edu.drexel.cs451.hangman.view.GuessedLettersPanel;
-import edu.drexel.cs451.hangman.view.HangingPanel;
+import edu.drexel.cs451.hangman.HangmanGame;
+import edu.drexel.cs451.hangman.SinglePlayerGame;
 
 public class SinglePlayerScreenView extends GamePanel implements MouseListener,
         KeyListener {

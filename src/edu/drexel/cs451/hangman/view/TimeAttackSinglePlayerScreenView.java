@@ -1,10 +1,12 @@
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.view;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.util.Date;
 
 import javax.swing.JLabel;
+
+import edu.drexel.cs451.hangman.TimeAttackSinglePlayerGame;
 
 public class TimeAttackSinglePlayerScreenView extends SinglePlayerScreenView {
 	

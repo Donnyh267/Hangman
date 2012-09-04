@@ -2,7 +2,7 @@
  * The view for menu screen
  * Set up layout and listener
  */
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.view;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -11,6 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import edu.drexel.cs451.hangman.HangmanGame;
+import edu.drexel.cs451.hangman.MultiPlayerGame;
+import edu.drexel.cs451.hangman.SinglePlayerGame;
+import edu.drexel.cs451.hangman.TimeAttackSinglePlayerGame;
+import edu.drexel.cs451.hangman.accessor.WordAccessor;
 
 public class MenuScreenView extends GamePanel implements ActionListener {
     private static final long serialVersionUID = 1L;
@@ -57,7 +64,11 @@ public class MenuScreenView extends GamePanel implements ActionListener {
             singleGame.start();
 
         } else if (ae.getSource() == multiB) {
-            // TODO: play multi player
+            String playerName = JOptionPane.showInputDialog(null, "Enter your nickname: ", 
+                    " ", 1);
+            if (playerName == null || playerName.isEmpty()) return; 
+            MultiPlayerGame multiGame = new MultiPlayerGame(game, playerName);
+            multiGame.start();
         } else if (ae.getSource() == timeB) {
         	TimeAttackSinglePlayerGame singleGame = new TimeAttackSinglePlayerGame(game);
         	singleGame.start();

@@ -27,7 +27,7 @@ public class PubNubExample {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter the name of a channel to connect to: ");
-        String channel = "CS451_Hangman_" + scan.nextLine();
+        String channel = scan.nextLine();
         Pubnub pubnub = new Pubnub(PUBLISHER_KEY, SUBSCRIBE_KEY, SECRET_KEY,
                 CIPHER_KEY, true);
 
@@ -76,16 +76,6 @@ public class PubNubExample {
                             System.out.print(inMessage.get(keys.next()
                                     .toString()) + " ");
                         }
-                        System.out.println();
-                    } else if (message instanceof String) {
-                        // Else if the message we got was a String
-                        String inMessage = (String) message;
-                        System.out.print(inMessage + " ");
-                        System.out.println();
-                    } else if (message instanceof JSONArray) {
-                        // Else if the message was a JSON array
-                        JSONArray inMessage = (JSONArray) message;
-                        System.out.print(inMessage.toString() + " ");
                         System.out.println();
                     }
 

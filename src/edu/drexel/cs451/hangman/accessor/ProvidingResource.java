@@ -5,8 +5,8 @@
  * finish the task 
  */
 
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.accessor;
 
-public interface ProvidingWord {
+public interface ProvidingResource {
 
 }

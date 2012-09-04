@@ -10,6 +10,9 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import edu.drexel.cs451.hangman.view.GamePanel;
+import edu.drexel.cs451.hangman.view.MenuScreenView;
+
 public class HangmanGame {
 
     public static String title = "A New Hangman Game";

@@ -3,7 +3,7 @@
  * Implements all required methods in ProvidingResource
  */
 
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.accessor;
 
 public class ResourceManager implements ProvidingResource {
 

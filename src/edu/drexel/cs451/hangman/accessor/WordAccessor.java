@@ -5,13 +5,13 @@
  * @see ResourceManager
  */
 
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.accessor;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
 
 public class WordAccessor implements ProvidingWord {
     private static String filename = "HangmanWords.txt";

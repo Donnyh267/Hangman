@@ -1,4 +1,4 @@
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.accessor;
 
 public enum GameStatus {
     WIN, // Game is finished and player won the game

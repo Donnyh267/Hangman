@@ -5,6 +5,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import edu.drexel.cs451.hangman.accessor.GameStatus;
+import edu.drexel.cs451.hangman.accessor.WordAccessor;
+import edu.drexel.cs451.hangman.view.SinglePlayerScreenView;
+
 public class SinglePlayerGame {
 
 	protected WordAccessor wordAccessor;
@@ -52,8 +56,8 @@ public class SinglePlayerGame {
 		view = new SinglePlayerScreenView(this);
 		game.changePanel(view);
 		status = GameStatus.CONTINUE;
-		view.requestFocus();
-		view.requestFocusInWindow();
+		getView().requestFocus();
+		getView().requestFocusInWindow();
 	}
 
 	public Boolean checkLetter(String letter) {
@@ -75,9 +79,9 @@ public class SinglePlayerGame {
 			status = GameStatus.WIN;
 
 		if (status == GameStatus.LOSE)
-			view.drawLoseScreen();
+			getView().drawLoseScreen();
 		else if (status == GameStatus.WIN)
-			view.drawWinScreen();
+			getView().drawWinScreen();
 	}
 
 	public String getPickedWord() {
@@ -101,15 +105,15 @@ public class SinglePlayerGame {
 
 	private void guessWrong(String guessedCharacter) {
 		missedLetters.add(guessedCharacter);
-		view.disableLetter(guessedCharacter);
-		view.hangNext();
+		getView().disableLetter(guessedCharacter);
+		getView().hangNext();
 		System.out.println("W: " + guessedCharacter);
 	}
 
 	private void guessRight(String guessedCharacter) {
 		foundLetters.add(guessedCharacter);
-		view.disableLetter(guessedCharacter);
-		view.showLetter(guessedCharacter);
+		getView().disableLetter(guessedCharacter);
+		getView().showLetter(guessedCharacter);
 		numRemainingLetters--;
 		System.out.println("R: " + guessedCharacter);
 	}
@@ -117,4 +121,8 @@ public class SinglePlayerGame {
 	public void exit() {
 		game.changePanel(game.menuScreenView);
 	}
+
+    public SinglePlayerScreenView getView() {
+        return view;
+    }
 }

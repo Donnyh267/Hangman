@@ -1,4 +1,4 @@
-package edu.drexel.cs451.hangman;
+package edu.drexel.cs451.hangman.view;
 
 import java.awt.Graphics;
 import java.awt.Image;

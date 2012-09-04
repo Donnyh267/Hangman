@@ -3,6 +3,10 @@ package edu.drexel.cs451.hangman;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import edu.drexel.cs451.hangman.accessor.GameStatus;
+import edu.drexel.cs451.hangman.accessor.WordAccessor;
+import edu.drexel.cs451.hangman.view.TimeAttackSinglePlayerScreenView;
+
 public class TimeAttackSinglePlayerGame extends SinglePlayerGame {
 
 	private final static long time = 1 * 60 * 1000; // 3 mins in ms
